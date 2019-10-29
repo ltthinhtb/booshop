@@ -1,8 +1,51 @@
+
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Screens/Home.dart';
+import 'package:flutter_app/Screens/Sign_in.dart';
+import 'package:flutter_app/Screens/Sign_up.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+class Authention extends StatefulWidget {
+
+  @override
+  _AuthentionState createState() => _AuthentionState();
+}
+
+class _AuthentionState extends State<Authention> {
+  //final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final kFirebaseAnalytics = FirebaseAnalytics();
+  final kFirebaseAuth = FirebaseAuth.instance;
 
 
-class Authention extends StatelessWidget {
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+
+
+  Future<FirebaseUser> _handleSignIn() async {
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+
+    final AuthCredential credential = GoogleAuthProvider.getCredential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
+    print("signed in " + user.displayName);
+
+
+
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyHomePage()));
+
+    kFirebaseAnalytics.logLogin();
+    return user;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +88,9 @@ class Authention extends StatelessWidget {
                             child: Text("Login", style: TextStyle(
                                 color: Colors.pink
                             ),),
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                            },
                           ),
                         ),
                         Spacer()
@@ -75,7 +120,9 @@ class Authention extends StatelessWidget {
                       child: Text("Sign up", style: TextStyle(
                           color: Colors.white
                       ),),
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute (builder: (context)=>SignUpPage()));
+                      },
                     ),
                   ),
                   SizedBox(height: 30.0),
@@ -89,7 +136,10 @@ class Authention extends StatelessWidget {
                         color: Colors.red,
                         icon: Icon(FontAwesomeIcons.google, color: Colors.white,),
                         label: Text("Google", style: TextStyle(color: Colors.white),),
-                        onPressed: () {},
+                        onPressed: () {
+                          _handleSignIn();
+                          //_login();
+                        },
                       ),
                       SizedBox(width: 10.0),
                       Text("or"),
@@ -114,5 +164,6 @@ class Authention extends StatelessWidget {
       ),
     );
   }
+
 }
 

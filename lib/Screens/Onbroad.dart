@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/Home.dart';
+import 'package:flutter_app/Screens/Authention.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
 import 'package:intro_views_flutter/Models/page_view_model.dart';
 
@@ -90,7 +90,7 @@ class _OnBroadingState extends State<OnBroading> {
         showNextButton: true,
         showBackButton: true,
         onTapDoneButton: () {
-          Navigator.of(context).pushReplacement(PageRouteBuilder(pageBuilder:(_,__,___,)=> MyHomePage() ));
+          Navigator.of(context).pushReplacement(PageRouteBuilder(pageBuilder:(_,__,___,)=> Authention() ));
         },
         pageButtonTextStyles: TextStyle(
           color: Colors.black,

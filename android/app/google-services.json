@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "470850265499",
+    "firebase_url": "https://ricardo-shop.firebaseio.com",
+    "project_id": "ricardo-shop",
+    "storage_bucket": "ricardo-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470850265499:android:cfb25e88de74edb94f413e",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470850265499-tog82o8ffrpehnj2q19ma72dq3geb5rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_app",
+            "certificate_hash": "051e808eb566a551109fe69f5c84ec654ceab8da"
+          }
+        },
+        {
+          "client_id": "470850265499-ocnmm0umgacs841giei64kovfarpq18l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATZTBt4cMcIOzVCvB84mvLpF-KQroDYt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470850265499-ocnmm0umgacs841giei64kovfarpq18l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

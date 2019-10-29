@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Screens/About.dart';
-import 'package:flutter_app/Screens/Authention.dart';
 import 'package:flutter_app/Screens/MainPage.dart';
+import 'package:flutter_app/Screens/profile.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 2:
         return new Scaffold();
       case 3:
-        return new Authention();
+        return new Profile();
         break;
       default:
         return MainPage();
