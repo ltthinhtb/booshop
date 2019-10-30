@@ -9,6 +9,7 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email, _password;
@@ -59,7 +60,9 @@ class _SignUpPageState extends State<SignUpPage> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       try{
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+        final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(email: _email, password: _password)).user;
+        //await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password);
+        print(user.displayName);
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
       }catch(e){
         print(e.message);

@@ -1,5 +1,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Screens/Authention.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -28,7 +29,7 @@ class _ProfileState extends State<Profile> {
     future: FirebaseAuth.instance.currentUser(),
     builder: (context, AsyncSnapshot<FirebaseUser> snapshot) {
       if (snapshot.hasData) {
-        return Text(snapshot.data.displayName,style: TextStyle(
+        return Text(snapshot.data.email,style: TextStyle(
           fontFamily: 'Sans',
           fontWeight: FontWeight.w900,
           fontSize: 35.0,
@@ -69,10 +70,7 @@ class _ProfileState extends State<Profile> {
                       Padding(
                         padding: EdgeInsets.all(50),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: fullname,
-                      ),
+
                       Padding(
                         padding: EdgeInsets.all(4),
                       ),

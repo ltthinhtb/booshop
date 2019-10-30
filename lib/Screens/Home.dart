@@ -3,6 +3,8 @@ import 'package:flutter_app/Screens/About.dart';
 import 'package:flutter_app/Screens/MainPage.dart';
 import 'package:flutter_app/Screens/profile.dart';
 
+import 'package:flutter_app/util/product.dart';
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -17,12 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (current) {
       case 0:
         return new MainPage();
-      case 1:
-        return new Scaffold();
-      case 2:
-        return new Scaffold();
-      case 3:
-        return new Profile();
+        case 1:
+          return new Profile();
         break;
       default:
         return MainPage();
@@ -221,18 +219,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: Text(
                       "Home",
                       style: TextStyle(letterSpacing: 0.5),
-                    )),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.category),
-                    title: Text(
-                      "Category",
-                      style: TextStyle( letterSpacing: 0.5),
-                    )),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.notifications),
-                    title: Text(
-                      "Thông báo",
-                      style: TextStyle( letterSpacing: 0.5),
                     )),
                 BottomNavigationBarItem(
                     icon: Icon(

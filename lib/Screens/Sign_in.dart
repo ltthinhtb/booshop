@@ -61,8 +61,9 @@ class _LoginPageState extends State<LoginPage> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
       try{
-        await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password);
-        kFirebaseAnalytics.logLogin();
+        await _auth.signInWithEmailAndPassword(email: _email, password: _password);
+        await _auth.signInWithEmailAndPassword(email: _email, password: _password) ;
+        print("user.email");
         Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
       }catch(e){
         print(e.message);
