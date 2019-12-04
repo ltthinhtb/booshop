@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Screens/About.dart';
+import 'package:flutter_app/Screens/Cart.dart';
 import 'package:flutter_app/Screens/MainPage.dart';
+import 'package:flutter_app/Screens/listproduct.dart';
 import 'package:flutter_app/Screens/profile.dart';
 
-import 'package:flutter_app/util/product.dart';
+
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -44,7 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Icon(Icons.shopping_cart, color: Colors.teal, size: 30.0,),
+              child: GestureDetector(
+                  child: Icon(Icons.shopping_cart, color: Colors.teal, size: 30.0,),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute (builder: (context)=>CartPage()));
+                  },
+              ),
             )
           ],
         ),
@@ -84,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Divider(),
               GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "Hàng mới",)));
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text('HÀNG MỚI',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.w500)),
@@ -95,19 +104,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('COLLECTION',style: TextStyle(fontSize: 20.0),),
                 children: <Widget>[
                   ListTile(
-                    title: Text('MADE IN THE STREET',style: TextStyle(fontSize: 15.0)),
+                    title: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "MADE IN THE STREET",)));
+                        },
+                        child: Text('MADE IN THE STREET',style: TextStyle(fontSize: 15.0))),
                   ),
                   ListTile(
-                    title: Text('MARVEL',style: TextStyle(fontSize: 15.0)),
+                    title: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "MARVEL",)));
+                        },
+                        child: Text('MARVEL',style: TextStyle(fontSize: 15.0))),
                   ),
                   ListTile(
-                    title: Text('LEGENDS OF VIET NAM',style: TextStyle(fontSize: 15.0)),
+                    title: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "LEGENDS OF VIET NAM",)));
+                        },
+                        child: Text('LEGENDS OF VIET NAM',style: TextStyle(fontSize: 15.0))),
                   ),
                   ListTile(
-                    title: Text('RICARDO x LỘN XỘN BAND',style: TextStyle(fontSize: 15.0)),
+                    title: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "LỘN XỘN BAND",)));
+                        },
+                        child: Text('LỘN XỘN BAND',style: TextStyle(fontSize: 15.0))),
                   ),
                   ListTile(
-                    title: Text('BACK TO 80-s',style: TextStyle(fontSize: 15.0)),
+                    title: GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute (builder: (context)=>ListProducttPage(title: "BACK TO 80-s",)));
+                        },
+                        child: Text('BACK TO 80-s',style: TextStyle(fontSize: 15.0))),
                   ),
                 ],
               ),

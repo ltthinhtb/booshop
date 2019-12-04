@@ -66,8 +66,10 @@ flutter:
     - assets/img/home/baner2.jpg
     - assets/img/home/baner3.jpg
     - assets/img/home/baner4.jpg
+    - assets/img/back.jpg
+    - assets/img/license.jpg
 
-  # An image asset can refer to one or more resolution-specific "variants", see
+      # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
   # For details regarding adding assets from package dependencies, see

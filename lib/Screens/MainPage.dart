@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flutter_app/util/product.dart';
+import 'package:flutter_app/Screens/collection.dart';
+
 
 class MainPage extends StatelessWidget {
   @override
@@ -30,7 +31,24 @@ class MainPage extends StatelessWidget {
           child: Padding(padding: EdgeInsets.all(8.0),
             child: Text("THU ĐÔNG", style: TextStyle(fontSize: 30.0,decoration: TextDecoration.underline,fontWeight: FontWeight.bold),),),
         ),
-        Collection_winter()
+        Collection_winter(),
+        Image.asset("assets/img/back.jpg"),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Text("Công ty cổ phần thương mại",
+              style: TextStyle(
+                  fontSize: 20,
+              ),
+            )
+          ),
+        ),
+        Image.asset("assets/img/license.jpg"),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text("Địa chỉ: Ngõ 68 Cầu Giấy",style: TextStyle(fontSize: 20),),
+        ),
+        SizedBox(height: 20,)
       ],
     );
   }
